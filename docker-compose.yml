@@ -1,0 +1,17 @@
+version: "3"
+services:
+  modelsim:
+    container_name: modelsim
+    image: goldensniper/modelsim-docker:latest
+    tty: true
+    environment:
+      DISPLAY:
+    env_file:
+      - .env
+    working_dir: /wd
+    volumes:
+      - './entrypoint.sh:/wd/entrypoint.sh'
+      - /tmp/.X11-unix
+    entrypoint: '/wd/entrypoint.sh'
+    privileged: true
+    network_mode: host
