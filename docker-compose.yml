@@ -10,8 +10,9 @@ services:
       - .env
     working_dir: /wd
     volumes:
-      - './entrypoint.sh:/wd/entrypoint.sh'
+      - './entrypoint.sh:/usr/bin/entrypoint.sh'
+      - './workingdir/:/wd/'
       - /tmp/.X11-unix
-    entrypoint: '/wd/entrypoint.sh'
+    entrypoint: '/usr/bin/entrypoint.sh'
     privileged: true
     network_mode: host
